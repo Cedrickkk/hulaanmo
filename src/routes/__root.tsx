@@ -9,7 +9,7 @@ function RootComponent() {
   return (
     <div className="relative min-h-screen">
       <div className="mx-auto max-w-2xl w-full px-6 py-12 md:py-24">
-        <div className="space-y-2">
+        <div className="space-y-6">
           <div className="flex gap-4 items-center">
             <img src="/me.jpg" alt="Cedrick" className="size-36 shrink-0" />
             <div className="space-y-1">
@@ -30,7 +30,7 @@ function RootComponent() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 pt-1">
+          <div className="flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4">
             {navigation.map(({ path, label }) => (
               <Link
                 key={path}
@@ -53,7 +53,7 @@ function RootComponent() {
           </div>
         </div>
 
-        <div className="mt-5">
+        <div className="mt-7">
           <Outlet />
         </div>
       </div>
