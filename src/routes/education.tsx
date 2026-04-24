@@ -13,16 +13,22 @@ function RouteComponent() {
       </p>
       <ul className="space-y-4">
         {education.map(({ degree, school, period }) => (
-          <li key={school} className="flex flex-col gap-y-0.5">
-            <div className="flex items-baseline justify-between gap-x-4 flex-wrap">
-              <p className="text-sm">
-                {degree} &nbsp;
-                <span className="italic text-muted-foreground">— {school}</span>
-              </p>
-              <p className="text-muted-foreground text-xs tabular-nums">
-                {period}
-              </p>
-            </div>
+          <li
+            key={school}
+            className="flex flex-col md:flex-row gap-y-0.5 md:items-baseline md:justify-between"
+          >
+            <p className="text-sm">
+              {degree} &nbsp;
+              <span className="italic text-muted-foreground md:inline hidden">
+                — {school}
+              </span>
+            </p>
+            <p className="text-muted-foreground italic text-sm md:hidden">
+              {school}
+            </p>
+            <p className="text-muted-foreground text-xs tabular-nums">
+              {period}
+            </p>
           </li>
         ))}
       </ul>
