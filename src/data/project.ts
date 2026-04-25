@@ -11,7 +11,7 @@ export const projects: Project[] = [
     description:
       "Document management system with CNN-based document and signature authentication.",
     tech: ["Laravel", "React", "TypeScript", "MySQL", "Python", "Inertia.js"],
-    link: "#",
+    link: "https://github.com/Cedrickkk/qmsopticore",
   },
   {
     name: "JenVentory",
@@ -25,21 +25,28 @@ export const projects: Project[] = [
       "Zod",
       "PostgreSQL",
     ],
-    link: "#",
+    link: "https://github.com/cedrickkk?tab=repositories&q=jen-ventory",
   },
+  {
+    name: "Java Console Projects",
+    description: "Collection of console apps I made while learning Java.",
+    tech: ["Java", "Data Structures"],
+    link: "https://github.com/Cedrickkk/java-console-projects",
+  },
+
   {
     name: "QuizCram",
     description:
       "Educational app with quiz creation, timed testing, and automated grading.",
     tech: ["Laravel", "React", "TypeScript", "MySQL", "Inertia.js"],
-    link: "#",
+    link: "https://github.com/Cedrickkk/quizcram",
   },
   {
     name: "React Redux Bank",
     description:
       "Banking interface demonstrating Redux state management with deposit and loan operations.",
     tech: ["React", "TypeScript", "Redux"],
-    link: "#",
+    link: "https://github.com/Cedrickkk/react-redux-bank",
   },
   {
     name: "The Missing Professor",
