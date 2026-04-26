@@ -9,8 +9,8 @@ function RouteComponent() {
   return (
     <div className="space-y-6">
       <p className="text-sm text-muted-foreground">
-        A mix of academic and self-learning projects. Each one helped me apply
-        what I was learning and explore different technologies hands-on.
+        A mix of academic and side projects. Each one helped me apply what I was
+        learning and explore different technologies.
       </p>
       <ul className="space-y-4">
         {projects.map(({ name, description, tech, link }) => (

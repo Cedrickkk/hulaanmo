@@ -33,7 +33,6 @@ export const projects: Project[] = [
     tech: ["Java", "Data Structures"],
     link: "https://github.com/Cedrickkk/java-console-projects",
   },
-
   {
     name: "QuizCram",
     description:
