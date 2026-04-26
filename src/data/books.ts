@@ -16,7 +16,7 @@ export const books: Book[] = [
     title: "Spring Start Here",
     author: "Laurentiu Spilca",
     note: "My entry point into Spring. Walked through dependency injection and auto-wiring by building small MVC and RESTful apps.",
-    link: "https://github.com/Cedrickkk/spring-start-herehttps://github.com/Cedrickkk/spring-start-here",
+    link: "https://github.com/Cedrickkk/spring-start-here",
   },
   {
     title: "Java Persistence with Spring Data and Hibernate",
