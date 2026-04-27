@@ -13,7 +13,7 @@ export const experience: Experience[] = [
     type: "Internship, On-site",
     period: "Feb 2026 – May 2026",
     bullets: [
-      "Designed RESTful APIs and robust database schemas to streamline loan application workflows.",
+      "Built the backend of an internal loan management system, designing REST APIs that handled the full loan lifecycle and normalizing the database schema to support complex multi-stage workflows.",
     ],
   },
   {
@@ -21,7 +21,7 @@ export const experience: Experience[] = [
     type: "Freelance, Remote",
     period: "Jan 2026",
     bullets: [
-      "Developed the frontend of a lending system with reliable data flow and validation, collaborating with backend developers to resolve API issues and support feature integration.",
+      "Built the frontend for a lending system, handling form validation and working closely with backend developers to iron out API integration issues during development.",
     ],
   },
 ];
