@@ -1,5 +1,6 @@
 type Experience = {
   role: string;
+  company?: string;
   type: string;
   period: string;
   bullets: string[];
@@ -8,6 +9,7 @@ type Experience = {
 export const experience: Experience[] = [
   {
     role: "Full-Stack Web Development Intern",
+    company: "Comfac Corporation",
     type: "Internship, On-site",
     period: "Feb 2026 – May 2026",
     bullets: [

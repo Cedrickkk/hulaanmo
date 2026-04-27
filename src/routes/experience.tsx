@@ -13,12 +13,20 @@ function RouteComponent() {
         work building full-stack web applications.
       </p>
       <ul className="space-y-5">
-        {experience.map(({ role, type, period, bullets }) => (
+        {experience.map(({ role, company, type, period, bullets }) => (
           <li key={role} className="flex flex-col gap-y-1.5">
             <div className="flex items-baseline justify-between gap-x-4">
-              <div className="flex md:flex-row flex-col items-start gap-x-1">
-                <p className="text-sm">{role} —</p>
-                <p className="italic text-muted-foreground text-sm">{type}</p>
+              <div className="flex flex-col items-start gap-x-1">
+                <p className="text-sm">{role}</p>
+                <div className="flex items-center">
+                  {company && (
+                    <p className="text-sm text-muted-foreground">
+                      {company}
+                      &nbsp; &middot; &nbsp;
+                    </p>
+                  )}
+                  <p className="italic text-muted-foreground text-sm">{type}</p>
+                </div>
                 <p className="text-muted-foreground text-xs tabular-nums md:hidden">
                   {period}
                 </p>
