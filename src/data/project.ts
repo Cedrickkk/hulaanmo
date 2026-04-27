@@ -20,7 +20,7 @@ export const projects: Project[] = [
     tech: [
       "Spring Boot",
       "React",
-      "Typescript",
+      "TypeScript",
       "TanStack Query",
       "Zod",
       "PostgreSQL",
