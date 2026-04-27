@@ -9,7 +9,7 @@ export const projects: Project[] = [
   {
     name: "Qmsopticore",
     description:
-      "Document management system with CNN-based document and signature authentication.",
+      "Document Management System with CNN-based signature consistency checking and role-based document access control",
     tech: ["Laravel", "React", "TypeScript", "MySQL", "Python", "Inertia.js"],
     link: "https://github.com/Cedrickkk/qmsopticore",
   },
