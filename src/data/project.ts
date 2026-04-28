@@ -28,6 +28,13 @@ export const projects: Project[] = [
     link: "https://github.com/cedrickkk?tab=repositories&q=jen-ventory",
   },
   {
+    name: "3-Tier Docker App",
+    description:
+      "A Docker learning project — a 3-tier web app running an interpreted Node.js and compiled Spring Boot server in containers.",
+    tech: ["Docker", "Node.js", "Spring Boot", "TypeScript"],
+    link: "https://github.com/Cedrickkk/3-tier-docker-lab",
+  },
+  {
     name: "Java Console Projects",
     description: "Collection of console apps I made while learning Java.",
     tech: ["Java", "Data Structures"],
