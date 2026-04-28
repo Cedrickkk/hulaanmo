@@ -31,7 +31,7 @@ export const projects: Project[] = [
     name: "3-Tier Docker App",
     description:
       "A Docker learning project — a 3-tier web app running an interpreted Node.js and compiled Spring Boot server in containers.",
-    tech: ["Docker", "Node.js", "Spring Boot", "TypeScript"],
+    tech: ["Docker", "Express", "Spring Boot", "TypeScript"],
     link: "https://github.com/Cedrickkk/3-tier-docker-lab",
   },
   {
