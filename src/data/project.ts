@@ -7,7 +7,7 @@ type Project = {
 
 export const projects: Project[] = [
   {
-    name: "Qmsopticore",
+    name: "Pamantasan ng Lungsod ng Pasig Document Management System",
     description:
       "Document Management System with CNN-based signature consistency checking and role-based document access control",
     tech: ["Laravel", "React", "TypeScript", "MySQL", "Python", "Inertia.js"],
