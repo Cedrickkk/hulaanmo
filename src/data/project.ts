@@ -9,7 +9,7 @@ export const projects: Project[] = [
   {
     name: "Pamantasan ng Lungsod ng Pasig Document Management System",
     description:
-      "Document Management System with CNN-based signature consistency checking and role-based document access control",
+      "Streamlines document workflows, featuring CNN-based signature consistency checking and role-based access control.",
     tech: ["Laravel", "React", "TypeScript", "MySQL", "Python", "Inertia.js"],
     link: "https://github.com/Cedrickkk/qmsopticore",
   },
