@@ -1,13 +1,20 @@
 import { externalLinks, navigation } from "@/lib/router";
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
+import {
+  Link,
+  Outlet,
+  createRootRoute,
+  useLocation,
+} from "@tanstack/react-router";
 
 export const Route = createRootRoute({
   component: RootComponent,
 });
 
 function RootComponent() {
+  const { pathname } = useLocation();
+
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen animate-fade-in">
       <div className="mx-auto max-w-2xl w-full px-6 py-12 md:py-24">
         <div className="space-y-6">
           <div className="flex gap-4 items-center">
@@ -53,7 +60,7 @@ function RootComponent() {
           </div>
         </div>
 
-        <div className="mt-7">
+        <div key={pathname} className="mt-7 animate-fade-in">
           <Outlet />
         </div>
       </div>
