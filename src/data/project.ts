@@ -28,9 +28,9 @@ export const projects: Project[] = [
     link: "https://github.com/cedrickkk?tab=repositories&q=jen-ventory",
   },
   {
-    name: "3-Tier Docker App",
+    name: "Minimal 3-Tier Web App with Docker",
     description:
-      "A Docker learning project — a 3-tier web app running an interpreted Node.js and compiled Spring Boot server in containers.",
+      "A Docker learning project — a 3-tier web app running an interpreted Node.js and compiled Spring Boot server with a containerized database.",
     tech: ["Docker", "Express", "Spring Boot", "TypeScript"],
     link: "https://github.com/Cedrickkk/3-tier-docker-lab",
   },
