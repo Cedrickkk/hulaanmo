@@ -10,7 +10,7 @@ export const experience: Experience[] = [
   {
     role: "Junior Software Developer - Trainee",
     company: "Novaware Systems Inc.",
-    type: "Probationary",
+    type: "Probationary, Hybrid",
     period: "Jun 2026 - Present",
     bullets: [],
   },
