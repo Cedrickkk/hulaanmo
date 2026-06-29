@@ -13,7 +13,7 @@ function RouteComponent() {
         time.
       </p>
       <p className="text-sm text-muted-foreground leading-relaxed">
-        Lately, I've been focusing on Java and Spring Boot, exploring new
+        On the side, I've been focusing on Java and Spring Boot, exploring new
         ecosystems and deepening my understanding of backend architecture and
         modern frameworks.
       </p>
