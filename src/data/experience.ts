@@ -8,6 +8,13 @@ type Experience = {
 
 export const experience: Experience[] = [
   {
+    role: "Junior Software Developer - Trainee",
+    company: "Novaware Systems Inc.",
+    type: "Probationary",
+    period: "Jun 2026 - Present",
+    bullets: [],
+  },
+  {
     role: "Full-Stack Web Development Intern",
     company: "Comfac Corporation",
     type: "Internship, On-site",

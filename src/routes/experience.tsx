@@ -9,8 +9,8 @@ function RouteComponent() {
   return (
     <div className="space-y-6">
       <p className="text-sm text-muted-foreground">
-        A summary of the roles I've taken on — both internship and freelance
-        work building full-stack web applications.
+        A summary of the roles I've taken on — focusing on professional
+        full-stack web development.
       </p>
       <ul className="space-y-5">
         {experience.map(({ role, company, type, period, bullets }) => (

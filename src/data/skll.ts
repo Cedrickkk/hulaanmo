@@ -8,7 +8,8 @@ export const skills: Skill[] = [
   { label: "Databases", items: "MySQL, PostgreSQL" },
   {
     label: "Frameworks",
-    items: "Laravel, Spring Boot, Express, Tailwind CSS, Bootstrap",
+    items:
+      "Laravel, Spring Boot, CodeIgniter 3, Express, Tailwind CSS, Bootstrap",
   },
   {
     label: "Libraries",

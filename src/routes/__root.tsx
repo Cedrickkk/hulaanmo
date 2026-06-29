@@ -21,7 +21,15 @@ function RootComponent() {
             <img src="/me.jpg" alt="Cedrick" className="size-36 shrink-0" />
             <div className="space-y-1">
               <h1 className="text-4xl font-medium">Cedrick</h1>
-              <div className="flex flex-wrap items-start gap-x-4 gap-y-1">
+              <div className="space-y-0.5">
+                <p className="text-sm font-medium">
+                  Junior Software Developer - Trainee
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Novaware Systems Inc.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-start gap-x-4 gap-y-1 pt-1">
                 {externalLinks.map(({ label, url }) => (
                   <a
                     key={label}
