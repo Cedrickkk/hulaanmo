@@ -7,6 +7,13 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Routemate ",
+    description:
+      "A social adventure platform for discovering, creating, and sharing outdoor experiences.",
+    tech: ["Spring Boot", "React Native", "TypeScript", "PostgreSQL"],
+    link: "https://github.com/Cedrickkk/routemate",
+  },
+  {
     name: "Pamantasan ng Lungsod ng Pasig Document Management System",
     description:
       "Streamlines document workflows, featuring CNN-based signature consistency checking and role-based access control.",
@@ -28,13 +35,6 @@ export const projects: Project[] = [
     link: "https://github.com/cedrickkk?tab=repositories&q=jen-ventory",
   },
   {
-    name: "Minimal 3-Tier Web App with Docker",
-    description:
-      "A Docker learning project — a 3-tier web app running an interpreted Node.js and compiled Spring Boot server with a containerized database.",
-    tech: ["Docker", "Express", "Spring Boot", "TypeScript"],
-    link: "https://github.com/Cedrickkk/3-tier-docker-lab",
-  },
-  {
     name: "Java Console Projects",
     description: "Collection of console apps I made while learning Java.",
     tech: ["Java", "Data Structures"],
@@ -46,6 +46,13 @@ export const projects: Project[] = [
       "Educational app with quiz creation, timed testing, and automated grading.",
     tech: ["Laravel", "React", "TypeScript", "MySQL", "Inertia.js"],
     link: "https://github.com/Cedrickkk/quizcram",
+  },
+  {
+    name: "Minimal 3-Tier Web App with Docker",
+    description:
+      "A Docker learning project — a 3-tier web app running an interpreted Node.js and compiled Spring Boot server with a containerized database.",
+    tech: ["Docker", "Express", "Spring Boot", "TypeScript"],
+    link: "https://github.com/Cedrickkk/3-tier-docker-lab",
   },
   {
     name: "React Redux Bank",
