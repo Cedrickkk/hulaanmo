@@ -1,4 +1,4 @@
-import { skills } from "@/data/skll";
+import { skills } from "@/data/skill";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/skills")({
