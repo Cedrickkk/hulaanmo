@@ -21,6 +21,13 @@ export const projects: Project[] = [
     link: "https://github.com/Cedrickkk/qmsopticore",
   },
   {
+    name: "Python Calendar Roadmap",
+    description:
+      "A simple python program to automate calendar creation for structured learning roadmaps and study schedules via the Google Calendar API.",
+    tech: ["Python", "Google Calendar API"],
+    link: "https://github.com/Cedrickkk/python-calendar-bootcamp",
+  },
+  {
     name: "JenVentory",
     description:
       "Full-stack inventory, POS and debt tracking system for a small retail store.",
