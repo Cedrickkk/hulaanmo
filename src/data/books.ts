@@ -5,7 +5,7 @@ type Book = {
   link: string;
 };
 
-export const books: Book[] = [
+export const java: Book[] = [
   {
     title: "Introduction to Java Programming and Data Structures",
     author: "Daniel Liang",
@@ -35,5 +35,22 @@ export const books: Book[] = [
     author: "Mark Heckler",
     note: "Planned last. Looking forward to tying everything together and building production-ready Spring Boot applications.",
     link: "https://github.com/Cedrickkk/springboot-up-and-running",
+  },
+];
+
+export const python: Book[] = [
+  {
+    title:
+      "Automate the Boring Stuff With Python, Third Edition Practical Programming for Total Beginners",
+    author: "Al Sweigart",
+    note: "A beginner-friendly guide I’m using to get comfortable with Python through practical, everyday examples.",
+    link: "",
+  },
+  {
+    title:
+      "Fluent Python Clear, Concise, and Effective Programming, 2nd Edition",
+    author: "Luciano Ramalho",
+    note: "A deeper follow-up for writing cleaner, more Pythonic code once I’ve got the basics down.",
+    link: "",
   },
 ];
