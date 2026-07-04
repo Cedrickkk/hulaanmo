@@ -13,10 +13,7 @@ function RouteComponent() {
         what I'm currently working through to deepen my understanding of backend
         and AI Engineering with Java and Python.
       </p>
-      <div className="space-y-3">
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground/70">
-          AI Engineering
-        </p>
+      <div className="space-y-4">
         <ul className="space-y-4">
           {python.map(({ title, author, note, link }) => (
             <li key={title} className="flex flex-col gap-y-0.5">
@@ -36,11 +33,6 @@ function RouteComponent() {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="space-y-3">
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground/70">
-          Backend Development
-        </p>
         <ul className="space-y-4">
           {java.map(({ title, author, note, link }) => (
             <li key={title} className="flex flex-col gap-y-0.5">
