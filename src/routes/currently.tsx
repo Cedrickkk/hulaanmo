@@ -7,7 +7,7 @@ export const Route = createFileRoute("/currently")({
 
 function RouteComponent() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <p className="text-sm text-muted-foreground leading-relaxed">
         I like reading technical books and exploring new technologies. These are
         what I'm currently working through to deepen my understanding of backend
