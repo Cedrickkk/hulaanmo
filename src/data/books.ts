@@ -44,7 +44,7 @@ export const python: Book[] = [
       "Automate the Boring Stuff With Python, Third Edition Practical Programming for Total Beginners",
     author: "Al Sweigart",
     note: "A beginner-friendly guide I’m using to get comfortable with Python through practical, everyday examples.",
-    link: "",
+    link: "https://github.com/Cedrickkk/automate-boring-stuff-with-python",
   },
   {
     title:
