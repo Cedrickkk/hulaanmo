@@ -4,7 +4,7 @@ type Skill = {
 };
 
 export const skills: Skill[] = [
-  { label: "Languages", items: "JavaScript, TypeScript, Java, PHP" },
+  { label: "Languages", items: "JavaScript, TypeScript, Java, Python, PHP" },
   { label: "Databases", items: "MySQL, PostgreSQL" },
   {
     label: "Frameworks",
