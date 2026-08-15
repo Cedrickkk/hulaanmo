@@ -6,13 +6,13 @@ type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    name: "Routemate ",
-    description:
-      "A social adventure platform for discovering, creating, and sharing outdoor experiences.",
-    tech: ["Spring Boot", "React Native", "TypeScript", "PostgreSQL"],
-    link: "https://github.com/Cedrickkk/routemate",
-  },
+  // {
+  //   name: "Routemate ",
+  //   description:
+  //     "A social adventure platform for discovering, creating, and sharing outdoor experiences.",
+  //   tech: ["Spring Boot", "React Native", "TypeScript", "PostgreSQL"],
+  //   link: "https://github.com/Cedrickkk/routemate",
+  // },
   {
     name: "Pamantasan ng Lungsod ng Pasig Document Management System",
     description:
