@@ -51,6 +51,6 @@ export const python: Book[] = [
       "Fluent Python Clear, Concise, and Effective Programming, 2nd Edition",
     author: "Luciano Ramalho",
     note: "A deeper follow-up for writing cleaner, more Pythonic code once I’ve got the basics down.",
-    link: "",
+    link: "https://github.com/Cedrickkk/fluent-python-2nd-edition",
   },
 ];
