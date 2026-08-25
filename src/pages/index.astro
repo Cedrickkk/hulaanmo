@@ -1,20 +1,46 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
+import ContributionGraph from "@/components/ui/ContributionGraph.astro";
 ---
 
 <BaseLayout>
   <div class="space-y-6">
     <PageHeading title="About" />
     <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
-      An IT graduate from the Philippines currently focused on software
-      development. Motivated by the idea that small improvements compound over
-      time.
+      <span class="italic">A journey of a thousand miles begins with a single step.</span>
     </p>
     <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
-      On the side, I've been focusing on Java, Spring Boot, and AI Engineering,
-      exploring new ecosystems and deepening my understanding of backend
-      architecture and modern frameworks.
+      Focused on building reliable software, exploring backend architecture, and mastering modern development practices.
     </p>
+
+    <div class="space-y-8">
+      <div class="space-y-3">
+        <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
+          Goals
+        </p>
+        <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
+          Deepening my core expertise in Java and Spring Boot while expanding into AI Engineering.
+          Currently bridging these two domains by building intelligent backend applications with Spring AI.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
+          Interests
+        </p>
+        <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
+          Outside of code, I spend my time gaming, listening to music, and
+          watching movies.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
+          GitHub Activity
+        </p>
+        <ContributionGraph />
+      </div>
+    </div>
   </div>
 </BaseLayout>

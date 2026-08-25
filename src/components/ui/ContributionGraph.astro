@@ -1,0 +1,99 @@
+---
+import { externalLinks } from "@/lib/nav";
+
+const githubUrl = externalLinks.find(({ label }) => label === "@github")?.url ?? "";
+const username = githubUrl.split("/").filter(Boolean).pop() ?? "";
+
+type Contribution = { date: string; count: number; level: number };
+type ContributionsResponse = {
+  total: Record<string, number>;
+  contributions: Contribution[];
+};
+
+let contributions: Contribution[] = [];
+let total = 0;
+
+if (username) {
+  try {
+    const res = await fetch(
+      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
+    );
+    if (res.ok) {
+      const data: ContributionsResponse = await res.json();
+      contributions = data.contributions;
+      total = data.total.lastYear ?? contributions.reduce((sum, c) => sum + c.count, 0);
+    }
+  } catch {
+    contributions = [];
+  }
+}
+
+const firstDayOfWeek = contributions.length
+  ? new Date(`${contributions[0].date}T00:00:00Z`).getUTCDay()
+  : 0;
+
+const cells: (Contribution | null)[] = [...Array(firstDayOfWeek).fill(null), ...contributions];
+
+const weeks: (Contribution | null)[][] = [];
+for (let i = 0; i < cells.length; i += 7) {
+  weeks.push(cells.slice(i, i + 7));
+}
+
+const monthLabels = weeks.map((week, i) => {
+  const firstDay = week.find((c) => c !== null);
+  if (!firstDay || firstDay.date.slice(-2) > "07") return "";
+  const date = new Date(`${firstDay.date}T00:00:00Z`);
+  const prevFirstDay = weeks[i - 1]?.find((c) => c !== null);
+  if (!prevFirstDay) return date.toLocaleString("en-US", { month: "short", timeZone: "UTC" });
+  const prevMonth = new Date(`${prevFirstDay.date}T00:00:00Z`).getUTCMonth();
+  return prevMonth === date.getUTCMonth()
+    ? ""
+    : date.toLocaleString("en-US", { month: "short", timeZone: "UTC" });
+});
+
+const levelClass: Record<number, string> = {
+  0: "bg-[var(--color-fg)]/[0.07]",
+  1: "bg-[var(--color-accent)]/25",
+  2: "bg-[var(--color-accent)]/45",
+  3: "bg-[var(--color-accent)]/70",
+  4: "bg-[var(--color-accent)]",
+};
+---
+
+{
+  contributions.length > 0 && (
+    <div class="space-y-3">
+      <p class="text-sm text-[var(--color-muted)]">
+        <span class="font-medium text-[var(--color-fg)]">{total.toLocaleString()}</span>{" "}
+        contributions in the last year
+      </p>
+      <div class="overflow-x-auto pb-1">
+        <div class="inline-flex flex-col gap-y-1">
+          <div class="flex gap-x-[3px]">
+            {weeks.map((_, i) => (
+              <div class="w-[11px] shrink-0 font-mono text-xs tracking-tight text-[var(--color-muted)] uppercase">
+                {monthLabels[i]}
+              </div>
+            ))}
+          </div>
+          <div class="flex gap-x-[3px]">
+            {weeks.map((week) => (
+              <div class="flex flex-col gap-y-[3px]">
+                {week.map((day) =>
+                  day ? (
+                    <div
+                      class={`size-[11px] ${levelClass[day.level]}`}
+                      title={`${day.count} contribution${day.count === 1 ? "" : "s"} on ${day.date}`}
+                    />
+                  ) : (
+                    <div class="size-[11px]" />
+                  ),
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
