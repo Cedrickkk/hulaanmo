@@ -1,0 +1,154 @@
+---
+import Nav from "@/components/layout/Nav.astro";
+import ExternalLinks from "@/components/layout/ExternalLinks.astro";
+import { profile } from "@/lib/profile";
+---
+
+<div id="mobile-nav-root" class="sticky top-0 z-20 md:hidden bg-[var(--color-bg)]">
+  <div
+    class="flex items-center justify-between px-6 py-4"
+    style="padding-top: max(1rem, env(safe-area-inset-top));"
+  >
+    <a href="/" class="flex items-center gap-2.5">
+      <img
+        src="/me-avatar.jpg"
+        alt=""
+        width="28"
+        height="28"
+        class="size-7 shrink-0 object-cover"
+      />
+      <span class="font-display text-xl font-light tracking-tight">{profile.name}</span>
+    </a>
+    <button
+      type="button"
+      id="mobile-nav-toggle"
+      class="mobile-nav-toggle -mr-2 flex size-9 shrink-0 items-center justify-center text-[var(--color-fg)] transition-transform duration-150 active:scale-90 motion-reduce:active:scale-100"
+      aria-expanded="false"
+      aria-controls="mobile-nav-panel"
+      aria-label="Toggle navigation"
+    >
+      <span class="relative block size-5">
+        <span class="hamburger-bar hamburger-bar-top"></span>
+        <span class="hamburger-bar hamburger-bar-bottom"></span>
+      </span>
+    </button>
+  </div>
+  <div
+    id="mobile-nav-panel"
+    class="absolute inset-0 flex min-h-0 flex-col gap-8 overflow-y-auto bg-[var(--color-bg)] px-6 pt-2 opacity-0 pointer-events-none transition-opacity duration-[300ms] ease-[var(--ease-smooth)]"
+    style="padding-bottom: max(2rem, env(safe-area-inset-bottom));"
+    inert
+  >
+    <div class="space-y-0.5">
+      <p class="text-sm font-medium text-[var(--color-fg)]">{profile.role}</p>
+      <p class="text-xs text-[var(--color-muted)]">{profile.company}</p>
+    </div>
+    <Nav size="lg" />
+    <ExternalLinks />
+  </div>
+</div>
+
+<script>
+  const CLOSED_CLASSES = ["sticky", "top-0", "z-20"];
+  const OPEN_CLASSES = ["fixed", "inset-0", "z-30", "flex", "flex-col"];
+
+  const PANEL_VISUAL_CLOSED = ["opacity-0", "pointer-events-none"];
+  const PANEL_VISUAL_OPEN = ["opacity-100", "pointer-events-auto"];
+  const PANEL_LAYOUT_CLOSED = ["absolute", "inset-0"];
+  const PANEL_LAYOUT_OPEN = ["flex-1"];
+  const CLOSE_MS = 300;
+
+  let closeTimer: ReturnType<typeof setTimeout> | undefined;
+  let lockedScrollY = 0;
+
+  function lockScroll() {
+    lockedScrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${lockedScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+  }
+
+  function unlockScroll() {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    window.scrollTo(0, lockedScrollY);
+  }
+
+  function getEls() {
+    const root = document.getElementById("mobile-nav-root");
+    const toggle = document.getElementById("mobile-nav-toggle");
+    const panel = document.getElementById("mobile-nav-panel");
+    if (
+      !(root instanceof HTMLElement) ||
+      !(toggle instanceof HTMLElement) ||
+      !(panel instanceof HTMLElement)
+    )
+      return null;
+    return { root, toggle, panel };
+  }
+
+  function setOpen(open: boolean) {
+    const els = getEls();
+    if (!els) return;
+    clearTimeout(closeTimer);
+    els.toggle.setAttribute("aria-expanded", String(open));
+    els.panel.inert = !open;
+
+    if (open) lockScroll();
+    else unlockScroll();
+
+    for (const cls of PANEL_VISUAL_CLOSED) els.panel.classList.toggle(cls, !open);
+    for (const cls of PANEL_VISUAL_OPEN) els.panel.classList.toggle(cls, open);
+
+    if (open) {
+      for (const cls of CLOSED_CLASSES) els.root.classList.remove(cls);
+      for (const cls of OPEN_CLASSES) els.root.classList.add(cls);
+      for (const cls of PANEL_LAYOUT_CLOSED) els.panel.classList.remove(cls);
+      for (const cls of PANEL_LAYOUT_OPEN) els.panel.classList.add(cls);
+    } else {
+      closeTimer = setTimeout(() => {
+        for (const cls of OPEN_CLASSES) els.root.classList.remove(cls);
+        for (const cls of CLOSED_CLASSES) els.root.classList.add(cls);
+        for (const cls of PANEL_LAYOUT_OPEN) els.panel.classList.remove(cls);
+        for (const cls of PANEL_LAYOUT_CLOSED) els.panel.classList.add(cls);
+      }, CLOSE_MS);
+    }
+  }
+
+  function isOpen() {
+    return getEls()?.toggle.getAttribute("aria-expanded") === "true";
+  }
+
+  function initMobileNav() {
+    const els = getEls();
+    if (!els) return;
+
+    els.toggle.addEventListener("click", () => setOpen(!isOpen()));
+    els.panel.addEventListener("click", (e) => {
+      if (e.target instanceof HTMLElement && e.target.closest("a")) setOpen(false);
+    });
+
+    const win = window as typeof window & { __mobileNavGlobalBound?: boolean };
+    if (win.__mobileNavGlobalBound) return;
+    win.__mobileNavGlobalBound = true;
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen()) {
+        setOpen(false);
+        getEls()?.toggle.focus();
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const current = getEls();
+      if (!current || !isOpen()) return;
+      const target = e.target as Node;
+      if (!current.panel.contains(target) && !current.toggle.contains(target)) setOpen(false);
+    });
+  }
+
+  document.addEventListener("astro:page-load", initMobileNav);
+</script>

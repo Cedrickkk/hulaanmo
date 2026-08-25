@@ -14,6 +14,13 @@ export const projects: Project[] = [
   //   link: "https://github.com/Cedrickkk/routemate",
   // },
   {
+    name: "Spring AI-ception",
+    description:
+      "A meta RAG & persistent chat memory service that uses Spring AI to answer questions about Spring AI.",
+    tech: ["Spring AI", "pgvector", "React", "TypeScript", "Python"],
+    link: "https://github.com/Cedrickkk/qmsopticore",
+  },
+  {
     name: "Pamantasan ng Lungsod ng Pasig Document Management System",
     description:
       "Streamlines document workflows, featuring CNN-based signature consistency checking and role-based access control.",

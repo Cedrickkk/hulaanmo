@@ -1,0 +1,33 @@
+---
+import { navigation } from "@/lib/nav";
+
+type Props = {
+  size?: "sm" | "lg";
+};
+
+const { size = "sm" } = Astro.props;
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const textSize = size === "lg" ? "text-base" : "text-sm";
+const gap = size === "lg" ? "gap-y-3" : "gap-y-1.5";
+---
+
+<nav class={`flex flex-col items-start ${gap}`}>
+  {
+    navigation.map(({ path, label }) => {
+      const isActive = path === "/" ? currentPath === "/" : currentPath === path;
+      return (
+        <a
+          href={path}
+          aria-current={isActive ? "page" : undefined}
+          class={`ink-link ${textSize} ${
+            isActive
+              ? "is-active font-medium text-[var(--color-accent)]"
+              : "font-normal"
+          }`}
+        >
+          {label}
+        </a>
+      );
+    })
+  }
+</nav>

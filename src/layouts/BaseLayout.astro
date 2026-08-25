@@ -1,0 +1,94 @@
+---
+import { ClientRouter } from "astro:transitions";
+import MobileNav from "@/components/layout/MobileNav.astro";
+import Sidebar from "@/components/layout/Sidebar.astro";
+import { resolveSeo, siteConfig } from "@/lib/seo";
+import "@/styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const { title, description } = resolveSeo(Astro.props);
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url);
+const ogImageUrl = new URL(siteConfig.ogImage, siteConfig.url);
+const isHome = Astro.url.pathname === "/";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  alternateName: siteConfig.shortName,
+  url: siteConfig.url,
+  image: ogImageUrl.toString(),
+  jobTitle: "Java & Spring Boot Developer",
+  description: siteConfig.description,
+  sameAs: ["https://github.com/Cedrickkk", "https://linkedin.com/in/cedric-panti"],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.name} />
+    <meta name="keywords" content={siteConfig.keywords.join(", ")} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#fdfdfb" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={siteConfig.locale} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content={String(siteConfig.ogImageWidth)} />
+    <meta property="og:image:height" content={String(siteConfig.ogImageHeight)} />
+    <meta property="og:image:alt" content={siteConfig.ogImageAlt} />
+    <meta property="og:url" content={canonicalUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={siteConfig.ogImageAlt} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Geist:wght@100..900&family=Geist+Mono:wght@400..500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+    {
+      isHome && (
+        <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} is:inline />
+      )
+    }
+    <ClientRouter />
+  </head>
+  <body class="font-sans antialiased">
+    <MobileNav />
+    <div id="page" class="mx-auto w-full max-w-[1120px] px-6 py-12 md:px-10 md:py-20">
+      <div class="grid grid-cols-1 gap-y-12 md:grid-cols-[260px_1fr] md:gap-x-20">
+        <aside class="hidden md:sticky md:top-20 md:block md:h-fit">
+          <Sidebar />
+        </aside>
+        <main transition:animate="fade" class="min-w-0 animate-fade-in">
+          <slot />
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

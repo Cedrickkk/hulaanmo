@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
+---
+
+<BaseLayout title="Not found">
+  <div class="space-y-6">
+    <PageHeading title="Not found" slug="404" />
+    <p class="text-sm text-[var(--color-muted)]">This page doesn't exist.</p>
+    <a href="/" class="ink-link text-sm">&larr; Back home</a>
+  </div>
+</BaseLayout>

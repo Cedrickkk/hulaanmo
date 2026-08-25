@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
+import ProjectRow from "@/components/ui/ProjectRow.astro";
+import { projects } from "@/data/project";
+---
+
+<BaseLayout
+  title="Projects"
+  description="A mix of academic and side projects by John Cedric Panti — Java, Spring Boot, React, and Laravel."
+>
+  <div class="space-y-6">
+    <PageHeading title="Projects" />
+    <p class="max-w-[65ch] text-sm text-[var(--color-muted)]">
+      A mix of academic and side projects. Each one helped me apply what I was
+      learning and explore different technologies.
+    </p>
+    <ul>
+      {
+        projects.map((project) => (
+          <ProjectRow {...project} />
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

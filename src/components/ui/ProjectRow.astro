@@ -1,0 +1,29 @@
+---
+import TechTag from "@/components/ui/TechTag.astro";
+
+type Props = {
+  name: string;
+  description: string;
+  tech: string[];
+  link: string;
+};
+
+const { name, description, tech, link } = Astro.props;
+const isExternal = link !== "#";
+---
+
+<li class={`flex flex-col gap-y-2 py-6 first:pt-0 ${isExternal ? "" : "opacity-50"}`}>
+  <a
+    href={link}
+    target={isExternal ? "_blank" : undefined}
+    rel={isExternal ? "noopener noreferrer" : undefined}
+    aria-disabled={isExternal ? undefined : "true"}
+    class={`text-lg font-medium ${isExternal ? "ink-link" : "pointer-events-none"}`}
+  >
+    {name}
+  </a>
+  <p class="text-sm">{description}</p>
+  <div class="flex flex-wrap gap-1.5 pt-1">
+    {tech.map((item) => <TechTag label={item} />)}
+  </div>
+</li>
