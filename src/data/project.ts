@@ -31,7 +31,7 @@ export const projects: Project[] = [
     name: "Learning Spring AI",
     description: "A simple project to explore the capabilities of Spring AI ",
     tech: ["Spring AI", "Ollama"],
-    link: "https://github.com/Cedrickkk/prompt2bean",
+    link: "https://github.com/Cedrickkk/learning-spring-ai",
   },
   {
     name: "Pamantasan ng Lungsod ng Pasig Document Management System",
