@@ -17,8 +17,21 @@ export const projects: Project[] = [
     name: "Spring AI-ception",
     description:
       "A meta RAG & persistent chat memory service that uses Spring AI to answer questions about Spring AI.",
-    tech: ["Spring AI", "pgvector", "React", "TypeScript", "Python"],
-    link: "https://github.com/Cedrickkk/qmsopticore",
+    tech: ["Spring AI", "pgvector", "React", "TypeScript", "Python", "Ollama"],
+    link: "https://github.com/Cedrickkk/spring-ai-ception",
+  },
+  {
+    name: "Prompt2Bean",
+    description:
+      "A Spring AI REST API that transforms unstructured natural language prompts into strongly-typed Java Records and JSON schemas.",
+    tech: ["Spring AI", "React", "TypeScript", "Ollama"],
+    link: "https://github.com/Cedrickkk/prompt2bean",
+  },
+  {
+    name: "Learning Spring AI",
+    description: "A simple project to explore the capabilities of Spring AI ",
+    tech: ["Spring AI", "Ollama"],
+    link: "https://github.com/Cedrickkk/prompt2bean",
   },
   {
     name: "Pamantasan ng Lungsod ng Pasig Document Management System",
