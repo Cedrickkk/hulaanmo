@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
+import { education } from "@/data/education";
+---
+
+<BaseLayout
+  title="Education"
+  description="Academic background of John Cedric Panti in Information Technology."
+>
+  <div class="space-y-6">
+    <PageHeading title="Education" />
+    <p class="max-w-[65ch] text-sm text-[var(--color-muted)]">
+      My academic background in information technology.
+    </p>
+    <ul>
+      {
+        education.map(({ degree, school, period }) => (
+          <li class="flex flex-col gap-y-1.5 py-3 first:pt-0 md:flex-row md:items-baseline md:justify-between">
+            <p class="text-lg font-medium">
+              {degree} &nbsp;
+              <span class="hidden font-sans text-sm italic md:inline">
+                — {school}
+              </span>
+            </p>
+            <p class="text-sm italic md:hidden">{school}</p>
+            <p class="text-xs tabular-nums">{period}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

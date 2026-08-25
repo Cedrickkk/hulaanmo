@@ -1,0 +1,63 @@
+---
+import { ClientRouter } from "astro:transitions";
+import MobileNav from "@/components/layout/MobileNav.astro";
+import Sidebar from "@/components/layout/Sidebar.astro";
+import { resolveSeo, siteConfig } from "@/lib/seo";
+import "@/styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const { title, description } = resolveSeo(Astro.props);
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url);
+const ogImageUrl = new URL(siteConfig.ogImage, siteConfig.url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.name} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Geist:wght@100..900&family=Geist+Mono:wght@400..500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body class="font-sans antialiased">
+    <MobileNav />
+    <div id="page" class="mx-auto w-full max-w-[1120px] px-6 py-12 md:px-10 md:py-20">
+      <div class="grid grid-cols-1 gap-y-12 md:grid-cols-[260px_1fr] md:gap-x-20">
+        <aside class="hidden md:sticky md:top-20 md:block md:h-fit">
+          <Sidebar />
+        </aside>
+        <main transition:animate="fade" class="min-w-0 animate-fade-in">
+          <slot />
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

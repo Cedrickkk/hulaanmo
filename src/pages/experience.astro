@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
+import { experience } from "@/data/experience";
+---
+
+<BaseLayout
+  title="Experience"
+  description="Professional full-stack web development roles held by John Cedric Panti."
+>
+  <div class="space-y-6">
+    <PageHeading title="Experience" />
+    <p class="max-w-[65ch] text-sm text-[var(--color-muted)]">
+      A summary of the roles I've taken on — focusing on professional
+      full-stack web development.
+    </p>
+    <ul>
+      {
+        experience.map(({ role, company, type, period, bullets }) => (
+          <li class="flex flex-col gap-y-1.5 py-5 first:pt-0">
+            <div class="flex items-baseline justify-between gap-x-4">
+              <div class="flex flex-col items-start gap-x-1">
+                <p class="text-lg font-medium">{role}</p>
+                <div class="flex items-center">
+                  {company && (
+                    <p class="text-sm">
+                      {company}
+                      &nbsp; &middot; &nbsp;
+                    </p>
+                  )}
+                  <p class="text-sm italic">{type}</p>
+                </div>
+                <p class="text-xs tabular-nums md:hidden">{period}</p>
+              </div>
+              <p class="hidden shrink-0 text-xs tabular-nums md:block">
+                {period}
+              </p>
+            </div>
+            {bullets.length > 0 && (
+              <ul class="ml-4 list-disc space-y-1 text-sm">
+                {bullets.map((b) => (
+                  <li>{b}</li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

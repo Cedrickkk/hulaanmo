@@ -1,0 +1,25 @@
+---
+import { navigation } from "@/lib/nav";
+
+type Props = {
+  title: string;
+  slug?: string;
+};
+
+const { title, slug: slugProp } = Astro.props;
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const current = navigation.find(({ path }) => path === currentPath);
+const slug = slugProp ?? current?.label ?? title.toLowerCase();
+---
+
+<div class="space-y-2">
+  <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)]">
+    /{slug}
+  </p>
+  <h1
+    class="font-display text-6xl font-light leading-none tracking-tight text-[var(--color-accent)] md:text-7xl"
+  >
+    {title}
+  </h1>
+</div>

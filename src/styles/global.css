@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Alumni Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --paper: #fdfdfb;
+  --ink: #333333;
+  --ink-soft: #4a4a4a;
+  --teal: oklch(49% 0.08 188);
+  --teal-soft: oklch(65% 0.065 188);
+
+  --color-bg: var(--paper);
+  --color-fg: var(--ink);
+  --color-muted: var(--ink-soft);
+  --color-accent: var(--teal);
+  --color-accent-soft: var(--teal-soft);
+
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-fg: var(--color-fg);
+  --color-muted: var(--color-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+.ink-link {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s var(--ease-smooth);
+}
+
+.ink-link:hover,
+.ink-link:focus-visible,
+.ink-link.is-active {
+  text-decoration-color: currentColor;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-in {
+    animation: fade-in 0.4s var(--ease-smooth) forwards;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hamburger-bar {
+  position: absolute;
+  inset-inline: 0;
+  top: 9.25px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.hamburger-bar-top {
+  transform: translateY(-3.25px);
+}
+
+.hamburger-bar-bottom {
+  transform: translateY(3.25px);
+}
+
+.mobile-nav-toggle[aria-expanded="true"] .hamburger-bar-top {
+  transform: translateY(0) rotate(45deg);
+}
+
+.mobile-nav-toggle[aria-expanded="true"] .hamburger-bar-bottom {
+  transform: translateY(0) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-bar {
+    transition: none;
+  }
+}

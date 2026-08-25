@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
+import { skills } from "@/data/skill";
+---
+
+<BaseLayout
+  title="Skills"
+  description="Technologies John Cedric Panti has worked with across professional experience and personal projects."
+>
+  <div class="space-y-6">
+    <PageHeading title="Skills" />
+    <p class="max-w-[65ch] text-sm text-[var(--color-muted)]">
+      Technologies I've worked with across my professional experience and
+      personal projects.
+    </p>
+    <div>
+      {
+        skills.map(({ label, items }) => (
+          <div class="space-y-1.5 py-4 first:pt-0">
+            <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
+              {label}
+            </p>
+            <p class="text-sm">{items}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
