@@ -30,7 +30,7 @@ export const externalLinks: ExternalLink[] = [
 export const navigation: Navigation[] = [
   { path: "/", label: "about" },
   { path: "/experience", label: "experience" },
-  { path: "/skills", label: "skills" },
+  // { path: "/skills", label: "skills" },
   // { path: "/education", label: "education" },
   { path: "/projects", label: "projects" },
   { path: "/currently", label: "currently" },
