@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
-import { java, python } from "@/data/books";
+import { java, python, ai } from "@/data/books";
 ---
 
 <BaseLayout
@@ -16,6 +16,27 @@ import { java, python } from "@/data/books";
       and AI Engineering with Java and Python.
     </p>
     <div class="space-y-8">
+    <div class="space-y-3 mt-8">
+        <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
+          AI Engineering
+        </p>
+        <ul>
+          {
+            ai.map(({ title, instructor, note, link }) => (
+              <li class="flex flex-col gap-y-1 py-5 first:pt-0">
+                <p class="text-lg font-medium">
+                  <a href={link} target="_blank" rel="noopener noreferrer" class="ink-link">
+                    {title}
+                  </a>
+                  &nbsp;
+                  <span class="font-sans text-sm italic">— {instructor}</span>
+                </p>
+                <p class="text-sm">{note}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
       <div class="space-y-3 mt-8">
         <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
           Python

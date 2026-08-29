@@ -54,3 +54,19 @@ export const python: Book[] = [
     link: "https://github.com/Cedrickkk/fluent-python-2nd-edition",
   },
 ];
+
+type Course = {
+  title: string;
+  instructor: string;
+  note: string;
+  link: string;
+};
+
+export const ai: Course[] = [
+  {
+    title: "AI Engineering Core Track: LLM Engineering, RAG, QLoRA, Agents",
+    instructor: "Ed Donner",
+    note: "A starting point to learn AI/LLM Engineering foundations",
+    link: "https://github.com/Cedrickkk/ai-engineering",
+  },
+];
