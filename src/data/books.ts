@@ -64,7 +64,8 @@ type Course = {
 
 export const ai: Course[] = [
   {
-    title: "AI Engineering Core Track: LLM Engineering, RAG, QLoRA, Agents",
+    title:
+      "AI Engineering Core & Agentic Track: LLM Engineering, RAG, QLoRA, Agents, MCP",
     instructor: "Ed Donner",
     note: "A starting point to learn AI/LLM Engineering foundations",
     link: "https://github.com/Cedrickkk/ai-engineering",
