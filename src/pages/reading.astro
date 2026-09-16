@@ -1,21 +1,40 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
-import { java, python, ai } from "@/data/books";
+import { java, python, ai, systemDesign, softwareArchitecture } from "@/data/books";
 ---
 
 <BaseLayout
-  title="Currently"
+  title="Reading"
   description="Technical books John Cedric Panti is currently reading to deepen backend and AI engineering knowledge."
 >
   <div class="space-y-6">
-    <PageHeading title="Currently" />
+    <PageHeading title="Reading" />
     <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
-      I like reading technical books and exploring new technologies. These are
-      what I'm currently working through to deepen my understanding of backend
-      and AI Engineering with Java and Python.
+      Always learning and experimenting with new tech! Here’s what I’m currently reading to level up my skills in AI engineering, Java, Python, System Design, and Software Architecture.
     </p>
     <div class="space-y-8">
+     <div class="space-y-3 mt-8">
+        <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
+          System Design & Architecture
+        </p>
+       <ul>
+          {
+            systemDesign.map(({ title, author, note, link }) => (
+              <li class="flex flex-col gap-y-1 py-5 first:pt-0">
+                <p class="text-lg font-medium">
+                  <a href={link} target="_blank" rel="noopener noreferrer" class="ink-link">
+                    {title}
+                  </a>
+                  &nbsp;
+                  <span class="font-sans text-sm italic">— {author}</span>
+                </p>
+                <p class="text-sm">{note}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     <div class="space-y-3 mt-8">
         <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
           AI Engineering

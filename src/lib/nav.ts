@@ -33,5 +33,5 @@ export const navigation: Navigation[] = [
   // { path: "/skills", label: "skills" },
   // { path: "/education", label: "education" },
   { path: "/projects", label: "projects" },
-  { path: "/currently", label: "currently" },
+  { path: "/reading", label: "reading" },
 ];
