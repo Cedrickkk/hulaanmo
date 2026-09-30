@@ -28,7 +28,7 @@ export const experience: Experience[] = [
     type: "Freelance, Remote",
     period: "Jan 2026",
     bullets: [
-      "Implemented features for a lending system, handling form validation and working closely with backend developers to iron out API integration issues during development.",
+      "Developed frontend components for a lending system, leading form validation efforts and troubleshooting API integration bottlenecks alongside backend teams.",
     ],
   },
 ];
