@@ -28,7 +28,7 @@ export const projects: Project[] = [
     link: "https://github.com/Cedrickkk/prompt2bean",
   },
   {
-    name: "Spring Boot Microservices Ecommerce Demo",
+    name: "Spring Boot Microservices Ecom Demo",
     description:
       "A Spring Boot ecommerce demo for learning and exploring microservices with Spring Boot ecosystem.",
     tech: ["Java", "Spring Boot", "Apache Kafka", "Docker", "Maven"],
