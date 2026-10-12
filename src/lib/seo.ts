@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "John Cedric Panti",
   shortName: "Cedrickkk",
-  title: "Cedrickkk - Java & Spring Boot Developer",
+  title: "Cedrickkk - Software Developer",
   description:
     "Full-stack developer specializing in Java, JavaScript, and PHP. Building web applications with Spring Boot, React, and Laravel. Currently deepening expertise in backend development with Spring Data, Spring Security, and REST APIs.",
   url: "https://cedrickkk.vercel.app",
   ogImage: "/og.png",
-  ogImageAlt: "John Cedric Panti (Cedrickkk) — Java & Spring Boot Developer",
+  ogImageAlt: "John Cedric Panti (Cedrickkk) — Softawre Developer",
   ogImageWidth: 1200,
   ogImageHeight: 630,
   locale: "en_US",
