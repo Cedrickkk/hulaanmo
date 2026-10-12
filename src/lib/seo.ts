@@ -31,7 +31,7 @@ type PageSeo = {
 
 export function resolveSeo({ title, description }: PageSeo = {}) {
   return {
-    title: title ? `${title} · ${siteConfig.name}` : siteConfig.title,
+    title: title ? `${title} - ${siteConfig.name}` : siteConfig.title,
     description: description ?? siteConfig.description,
   };
 }
