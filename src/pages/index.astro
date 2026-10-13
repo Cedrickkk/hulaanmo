@@ -2,13 +2,14 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
 import ContributionGraph from "@/components/ui/ContributionGraph.astro";
+import { about } from "@/lib/profile";
 ---
 
 <BaseLayout>
   <div class="space-y-6">
     <PageHeading title="About" />
     <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
-      Focused on building reliable software, exploring backend architecture, and mastering modern development practices.
+      {about.introduction}
     </p>
 
     <div class="space-y-8">
@@ -17,8 +18,7 @@ import ContributionGraph from "@/components/ui/ContributionGraph.astro";
           Goals
         </p>
         <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
-          Deepening my core expertise in Java and Spring Boot while expanding into AI Engineering.
-          Currently bridging these two domains by building intelligent backend applications with Spring AI.
+          {about.goals}
         </p>
       </div>
 
@@ -27,8 +27,10 @@ import ContributionGraph from "@/components/ui/ContributionGraph.astro";
           Interests
         </p>
         <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
-          Outside of code, I spend my time gaming, listening to music, and
-          watching movies.
+          {about.interests}
+        </p>
+        <p class="text-xs italic leading-relaxed text-[var(--color-muted)]">
+          {about.motto}
         </p>
       </div>
 
