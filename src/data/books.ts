@@ -72,14 +72,6 @@ export const python: Book[] = [
 
 export const systemDesign: Book[] = [
   {
-    title:
-      "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
-    author: "Martin Kleppmann & Chris Riccomini",
-    cover: "/books/data-intensive-applications.jpg",
-    note: "My go-to resource for understanding distributed systems, especially when digging into storage engines, message queues, and data consistency.",
-    link: "",
-  },
-  {
     title: "Building Microservices: Designing Fine-Grained Systems",
     author: "Sam Newman",
     cover: "/books/building-microservices.jpg",
@@ -91,6 +83,14 @@ export const systemDesign: Book[] = [
     author: "Mark Richards & Neal Ford",
     cover: "/books/software-architecture.jpg",
     note: "Keeps my architectural thinking sharp when evaluating component designs, system patterns, and technical trade-offs.",
+    link: "",
+  },
+  {
+    title:
+      "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
+    author: "Martin Kleppmann & Chris Riccomini",
+    cover: "/books/data-intensive-applications.jpg",
+    note: "My go-to resource for understanding distributed systems, especially when digging into storage engines, message queues, and data consistency.",
     link: "",
   },
 ];
