@@ -16,16 +16,14 @@ import { about } from "@/lib/profile";
     <div class="space-y-8">
       <div class="space-y-3 mt-8">
         <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
-          Goals
+          Currently exploring
         </p>
-        <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
-          {about.goals}
-        </p>
+        <LearningMap />
       </div>
 
       <div class="space-y-3">
         <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
-          Interests
+          Outside of code
         </p>
         <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
           {about.interests}
@@ -34,13 +32,7 @@ import { about } from "@/lib/profile";
 
       <div class="space-y-3">
         <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
-          Currently exploring
-        </p>
-        <LearningMap />
-      </div>
-      <div class="space-y-3">
-        <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
-          Github Activity
+          GitHub Activity
         </p>
         <ContributionGraph />
       </div>
