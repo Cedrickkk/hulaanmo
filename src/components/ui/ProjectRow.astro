@@ -6,13 +6,15 @@ type Props = {
   description: string;
   tech: string[];
   link: string;
+  preview?: { src: string; alt: string; caption: string; width: number; height: number };
 };
 
-const { name, description, tech, link } = Astro.props;
-const isExternal = link !== "#";
+const { name, description, tech, link, preview } = Astro.props;
+const isExternal = Boolean(link) && link !== "#";
 ---
 
-<li class={`flex flex-col gap-y-2 py-6 first:pt-0 ${isExternal ? "" : "opacity-50"}`}>
+<li class="flex flex-col gap-y-2 py-6 first:pt-0">
+  {isExternal ? (
   <a
     href={link}
     target={isExternal ? "_blank" : undefined}
@@ -22,8 +24,43 @@ const isExternal = link !== "#";
   >
     {name}
   </a>
+  ) : <p class="text-lg font-medium">{name}</p>}
   <p class="text-sm">{description}</p>
   <div class="flex flex-wrap gap-1.5 pt-1">
     {tech.map((item) => <TechTag label={item} />)}
   </div>
+  {preview && (
+    <figure class="project-preview">
+      <div class="preview-frame">
+        <img
+          src={preview.src}
+          alt={preview.alt}
+          width={preview.width}
+          height={preview.height}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      {preview.caption && <figcaption>{preview.caption}</figcaption>}
+    </figure>
+  )}
 </li>
+
+<style>
+  .project-preview { margin-top: 1rem; margin-bottom: .5rem; }
+  .preview-frame {
+    overflow: hidden;
+    border: 1px solid color-mix(in oklab, var(--color-accent) 18%, transparent);
+    border-radius: 3px;
+    background: white;
+  }
+  .preview-frame img { display: block; width: 100%; height: auto; }
+  figcaption {
+    margin-top: .625rem;
+    font-family: var(--font-mono);
+    font-size: .625rem;
+    line-height: 1.6;
+    letter-spacing: .025em;
+    color: var(--color-muted);
+  }
+</style>
