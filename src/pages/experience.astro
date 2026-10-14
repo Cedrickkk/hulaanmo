@@ -13,10 +13,10 @@ import { experience } from "@/data/experience";
     <p class="max-w-[65ch] text-sm text-[var(--color-muted)]">
       A look at the roles I've taken on and the work I've done along the way.
     </p>
-    <ul>
+    <ul class="experience-timeline">
       {
         experience.map(({ role, company, type, period, bullets }) => (
-          <li class="flex flex-col gap-y-1.5 py-5 first:pt-0">
+          <li class="timeline-entry flex flex-col gap-y-1.5">
             <div class="flex items-baseline justify-between gap-x-4">
               <div class="flex flex-col items-start gap-x-1">
                 <p class="text-lg font-medium">{role}</p>
@@ -48,3 +48,45 @@ import { experience } from "@/data/experience";
     </ul>
   </div>
 </BaseLayout>
+
+<style>
+  .timeline-entry {
+    position: relative;
+    padding-left: 1.75rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .timeline-entry::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .6rem;
+    width: .5rem;
+    height: .5rem;
+    border: 1px solid var(--color-accent-soft);
+    border-radius: 50%;
+    background: var(--color-bg);
+    z-index: 1;
+  }
+
+  .timeline-entry:first-child::before {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+  }
+
+  .timeline-entry:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(.25rem - .5px);
+    top: .85rem;
+    bottom: -.85rem;
+    width: 1px;
+    background: color-mix(in oklab, var(--color-accent) 24%, transparent);
+  }
+
+  .timeline-entry:last-child { padding-bottom: 0; }
+
+  @media (min-width: 768px) {
+    .timeline-entry { padding-left: 2rem; }
+  }
+</style>
