@@ -3,6 +3,7 @@ type Project = {
   description: string;
   tech: string[];
   link: string;
+  preview?: { src: string; alt: string; caption: string; width: number; height: number };
 };
 
 export const projects: Project[] = [
@@ -14,31 +15,46 @@ export const projects: Project[] = [
   //   link: "https://github.com/Cedrickkk/routemate",
   // },
   {
+    name: "Spring Boot Microservices Demo",
+    description:
+      "A Spring Boot ecommerce demo for learning and exploring microservices with Spring Boot ecosystem.",
+    tech: ["Spring Boot", "Apache Kafka", "Docker"],
+    link: "https://github.com/Cedrickkk/springboot-microservices-ecom-demo",
+    preview: {
+      src: "/projects/spring-boot-ecom-demo-architecture.png",
+      alt: "Architecture diagram of the Spring Boot ecommerce microservices demo.",
+      caption: "",
+      width: 2240,
+      height: 1630,
+    },
+  },
+  {
     name: "Spring AI-ception",
     description:
       "A meta RAG & persistent chat memory service that uses Spring AI to answer questions about Spring AI.",
     tech: ["Spring AI", "pgvector", "React", "TypeScript", "Python", "Ollama"],
     link: "https://github.com/Cedrickkk/spring-ai-ception",
+    preview: {
+      src: "/projects/spring-ai-ception.png",
+      alt: "Spring AI-ception chat interface.",
+      caption: "",
+      width: 1950,
+      height: 1672,
+    },
   },
   {
     name: "Prompt2Bean",
     description:
       "A Spring AI REST API that transforms unstructured natural language prompts into strongly-typed Java Records and JSON schemas.",
-    tech: ["Spring AI", "React", "TypeScript", "Ollama"],
+    tech: ["Spring AI", "React", "Ollama"],
     link: "https://github.com/Cedrickkk/prompt2bean",
-  },
-  {
-    name: "Spring Boot Microservices Ecom Demo",
-    description:
-      "A Spring Boot ecommerce demo for learning and exploring microservices with Spring Boot ecosystem.",
-    tech: ["Java", "Spring Boot", "Apache Kafka", "Docker", "Maven"],
-    link: "https://github.com/Cedrickkk/springboot-microservices-ecom-demo",
-  },
-  {
-    name: "Learning Spring AI",
-    description: "A simple project to explore the capabilities of Spring AI ",
-    tech: ["Spring AI", "Ollama"],
-    link: "https://github.com/Cedrickkk/learning-spring-ai",
+    preview: {
+      src: "/projects/prompt2bean.png",
+      alt: "Prompt2Bean interface for converting natural language into structured output.",
+      caption: "",
+      width: 1950,
+      height: 1672,
+    },
   },
   {
     name: "Pamantasan ng Lungsod ng Pasig Document Management System",
@@ -46,13 +62,41 @@ export const projects: Project[] = [
       "Streamlines document workflows, featuring CNN-based signature consistency checking and role-based access control.",
     tech: ["Laravel", "React", "TypeScript", "MySQL", "Python", "Inertia.js"],
     link: "https://github.com/Cedrickkk/qmsopticore",
+    preview: {
+      src: "/projects/qmsopticore.png",
+      alt: "Document management system interface.",
+      caption: "",
+      width: 2306,
+      height: 1454,
+    },
   },
   {
-    name: "Python Calendar Roadmap",
+    name: "React Redux Bank",
     description:
-      "A simple python program to automate calendar creation for structured learning roadmaps and study schedules via the Google Calendar API.",
-    tech: ["Python", "Google Calendar API"],
-    link: "https://github.com/Cedrickkk/python-calendar-bootcamp",
+      "Banking interface demonstrating Redux state management with deposit and loan operations.",
+    tech: ["React", "TypeScript", "Redux"],
+    link: "https://github.com/Cedrickkk/react-redux-bank",
+    preview: {
+      src: "/projects/react-redux-bank.png",
+      alt: "React Redux banking interface.",
+      caption: "",
+      width: 2396,
+      height: 1814,
+    },
+  },
+  {
+    name: "The Missing Professor",
+    description:
+      "Interactive CTF game teaching cybersecurity through progressive challenges.",
+    tech: ["React", "TypeScript", "Zod", "Zustand"],
+    link: "",
+    preview: {
+      src: "/projects/the-missing-professor.png",
+      alt: "The Missing Professor game preview showing the desk, cipher puzzle, library, and command prompt.",
+      caption: "",
+      width: 1566,
+      height: 1005,
+    },
   },
   {
     name: "JenVentory",
@@ -75,6 +119,19 @@ export const projects: Project[] = [
     link: "https://github.com/Cedrickkk/java-console-projects",
   },
   {
+    name: "Learning Spring AI",
+    description: "A simple project to explore the capabilities of Spring AI ",
+    tech: ["Spring AI", "Ollama"],
+    link: "https://github.com/Cedrickkk/learning-spring-ai",
+  },
+  {
+    name: "Python Calendar Roadmap",
+    description:
+      "A simple python program to automate calendar creation for structured learning roadmaps and study schedules via the Google Calendar API.",
+    tech: ["Python", "Google Calendar API"],
+    link: "https://github.com/Cedrickkk/python-calendar-bootcamp",
+  },
+  {
     name: "QuizCram",
     description:
       "Educational app with quiz creation, timed testing, and automated grading.",
@@ -87,19 +144,5 @@ export const projects: Project[] = [
       "A Docker learning project — a 3-tier web app running an interpreted Node.js and compiled Spring Boot server with a containerized database.",
     tech: ["Docker", "Express", "Spring Boot", "TypeScript"],
     link: "https://github.com/Cedrickkk/3-tier-docker-lab",
-  },
-  {
-    name: "React Redux Bank",
-    description:
-      "Banking interface demonstrating Redux state management with deposit and loan operations.",
-    tech: ["React", "TypeScript", "Redux"],
-    link: "https://github.com/Cedrickkk/react-redux-bank",
-  },
-  {
-    name: "The Missing Professor",
-    description:
-      "Interactive CTF game teaching cybersecurity through progressive challenges.",
-    tech: ["React", "TypeScript", "Zod", "Zustand"],
-    link: "#",
   },
 ];
