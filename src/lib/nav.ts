@@ -28,7 +28,7 @@ export const externalLinks: ExternalLink[] = [
 ];
 
 export const navigation: Navigation[] = [
-  { path: "/", label: "about" },
+  { path: "/", label: "snapshot" },
   { path: "/experience", label: "experience" },
   // { path: "/skills", label: "skills" },
   // { path: "/education", label: "education" },
