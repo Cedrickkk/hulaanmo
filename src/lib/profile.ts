@@ -9,6 +9,5 @@ export const about = {
     "Focused on deeply understanding software fundamentals, from system design and architecture to modern development practices.",
   goals:
     "Deepening my core expertise in Spring Boot while expanding into AI Engineering.",
-  interests:
-    "Outside of code, I spend my time gaming, listening to music, and watching movies.",
+  interests: "Usually listening to music, playing a game, or watching a movie.",
 };
