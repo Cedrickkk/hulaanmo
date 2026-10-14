@@ -1,0 +1,86 @@
+---
+const topics = [
+  { title: "Spring Boot", note: "Deepening my backend foundations", kind: "foundation" },
+  { title: "System design", note: "Understanding how the pieces fit", kind: "connections" },
+  { title: "AI engineering", note: "Exploring what I can build next", kind: "exploration" },
+];
+---
+
+<ul class="learning-map" aria-label="My current learning interests">
+  {topics.map(({ title, note, kind }) => (
+    <li class="topic">
+      <div class="topic-graphic" aria-hidden="true">
+        <svg viewBox="0 0 64 64" class={`topic-symbol ${kind}`} fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          {kind === "foundation" && <>
+            <path d="m32 10 21 11-21 11L11 21l21-11Z" />
+            <path d="m11 32 21 11 21-11M11 43l21 11 21-11" />
+            <path d="M32 32v11" />
+          </>}
+          {kind === "connections" && <>
+            <path d="M32 20v12M16 44v-12h32v12M32 32v12" />
+            <rect x="24" y="8" width="16" height="12" rx="1" />
+            <rect x="9" y="44" width="14" height="12" rx="1" />
+            <rect x="25" y="44" width="14" height="12" rx="1" />
+            <rect x="41" y="44" width="14" height="12" rx="1" />
+          </>}
+          {kind === "exploration" && <>
+            <path d="m17 18 30 5-9 27-21-32Zm0 0 4 27 17 5M47 23 21 45M17 18l21 32" />
+            <circle cx="17" cy="18" r="3" fill="var(--color-bg)" />
+            <circle cx="47" cy="23" r="3" fill="var(--color-bg)" />
+            <circle cx="21" cy="45" r="3" fill="var(--color-bg)" />
+            <circle cx="38" cy="50" r="3" fill="var(--color-bg)" />
+          </>}
+        </svg>
+      </div>
+      <h3 class="topic-title">{title}</h3>
+      <p class="topic-note">{note}</p>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .learning-map {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-block: 1rem .5rem;
+    list-style: none;
+  }
+
+  .topic { position: relative; padding-right: 1rem; }
+  .topic:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    left: 4.5rem;
+    right: .5rem;
+    height: 1px;
+    background: color-mix(in oklab, var(--color-accent) 24%, transparent);
+  }
+  .topic:last-child::after { display: none; }
+  .topic-graphic { width: 4rem; height: 4rem; margin-bottom: 1rem; }
+  .topic-symbol { width: 100%; height: 100%; color: var(--color-accent); }
+  .topic-title { font-size: .875rem; font-weight: 500; color: var(--color-fg); }
+  .topic-note {
+    max-width: 19ch;
+    margin-top: .375rem;
+    font-size: .75rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 540px) {
+    .learning-map { grid-template-columns: 1fr; gap: 1.75rem; padding-block: .75rem .5rem; }
+    .topic { display: grid; grid-template-columns: 3rem 1fr; column-gap: 1.25rem; padding: 0; }
+    .topic-graphic { grid-row: span 2; width: 3rem; height: 3rem; margin: 0; }
+    .topic-title { align-self: end; }
+    .topic-note { max-width: none; margin-top: .25rem; }
+    .topic:not(:last-child)::after {
+      top: 3.375rem;
+      bottom: -1.375rem;
+      left: 1.5rem;
+      right: auto;
+      width: 1px;
+      height: auto;
+    }
+  }
+</style>

@@ -1,13 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
+import LearningMap from "@/components/ui/LearningMap.astro";
 import ContributionGraph from "@/components/ui/ContributionGraph.astro";
 import { about } from "@/lib/profile";
 ---
 
 <BaseLayout>
   <div class="space-y-6">
-    <PageHeading title="About" />
+    <PageHeading title="Snapshot" />
     <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
       {about.introduction}
     </p>
@@ -33,7 +34,13 @@ import { about } from "@/lib/profile";
 
       <div class="space-y-3">
         <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
-          GitHub Activity
+          Currently exploring
+        </p>
+        <LearningMap />
+      </div>
+      <div class="space-y-3">
+        <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
+          Github Activity
         </p>
         <ContributionGraph />
       </div>
