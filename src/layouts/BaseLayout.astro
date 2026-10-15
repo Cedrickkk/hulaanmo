@@ -38,6 +38,33 @@ const personJsonLd = {
     <meta name="keywords" content={siteConfig.keywords.join(", ")} />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#fdfdfb" />
+    <script is:inline>
+      (() => {
+        if (window.__portfolioThemeReady) return;
+        window.__portfolioThemeReady = true;
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+        const resolveTheme = () => systemTheme.matches ? "dark" : "light";
+        let theme = resolveTheme();
+
+        function applyTheme(doc = document) {
+          doc.documentElement.dataset.theme = theme;
+          doc.querySelector('meta[name="theme-color"]')?.setAttribute(
+            "content", theme === "dark" ? "#1c191f" : "#fdfdfb"
+          );
+
+        }
+
+        applyTheme();
+        document.addEventListener("astro:page-load", () => applyTheme());
+        document.addEventListener("astro:before-swap", (event) => applyTheme(event.newDocument));
+        systemTheme.addEventListener("change", () => {
+          document.documentElement.classList.add("theme-motion");
+          theme = resolveTheme();
+          applyTheme();
+        });
+
+      })();
+    </script>
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
