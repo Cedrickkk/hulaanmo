@@ -38,6 +38,11 @@ const personJsonLd = {
     <meta name="keywords" content={siteConfig.keywords.join(", ")} />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#fdfdfb" />
+    <link rel="manifest" data-theme-manifest href="/site.webmanifest?v=jcp-6" />
+    <link rel="icon" data-theme-favicon data-light-icon="/favicon.ico" data-dark-icon="/favicon-dark.ico" type="image/x-icon" href="/favicon.ico?v=jcp-6" />
+    <link rel="icon" data-theme-favicon data-light-icon="/favicon-16x16.png" data-dark-icon="/favicon-dark-16x16.png" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=jcp-6" />
+    <link rel="icon" data-theme-favicon data-light-icon="/favicon-32x32.png" data-dark-icon="/favicon-dark-32x32.png" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=jcp-6" />
+    <link rel="apple-touch-icon" data-theme-favicon data-light-icon="/apple-touch-icon.png" data-dark-icon="/apple-touch-icon-dark.png" sizes="180x180" href="/apple-touch-icon.png?v=jcp-6" />
     <script is:inline>
       (() => {
         if (window.__portfolioThemeReady) return;
@@ -51,7 +56,22 @@ const personJsonLd = {
           doc.querySelector('meta[name="theme-color"]')?.setAttribute(
             "content", theme === "dark" ? "#1c191f" : "#fdfdfb"
           );
-
+          doc.querySelector('[data-theme-manifest]')?.setAttribute(
+            "href", theme === "dark"
+              ? "/site-dark.webmanifest?v=jcp-6"
+              : "/site.webmanifest?v=jcp-6"
+          );
+          doc.querySelectorAll('[data-theme-favicon]').forEach((favicon) => {
+            const faviconHref = favicon.getAttribute(
+              theme === "dark" ? "data-dark-icon" : "data-light-icon"
+            ) + "?v=jcp-6";
+            if (favicon.getAttribute("href") !== faviconHref) {
+              // Refresh every variant together so the browser cannot pick a stale light icon.
+              const updatedFavicon = favicon.cloneNode(true);
+              updatedFavicon.setAttribute("href", faviconHref);
+              favicon.replaceWith(updatedFavicon);
+            }
+          });
         }
 
         applyTheme();
@@ -85,10 +105,6 @@ const personJsonLd = {
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={siteConfig.ogImageAlt} />
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=jcp-3" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=jcp-3" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=jcp-3" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=jcp-3" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
