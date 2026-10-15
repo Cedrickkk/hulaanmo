@@ -9,8 +9,8 @@ type Props = {
 const { title, author, note, link, cover } = Astro.props;
 ---
 
-<li class="reading-row">
-  <div class="reading-art" aria-hidden="true">
+<li class="resource-row">
+  <div class="resource-art" aria-hidden="true">
     {cover ? (
       <img src={cover} alt="" width="56" height="80" loading="lazy" decoding="async" />
     ) : (
@@ -34,17 +34,17 @@ const { title, author, note, link, cover } = Astro.props;
 </li>
 
 <style>
-  .reading-row {
+  .resource-row {
     display: grid;
     grid-template-columns: 56px minmax(0, 1fr);
     gap: 1.25rem;
     padding-block: 1.25rem;
     align-items: start;
   }
-  .reading-row:first-child { padding-top: 0; }
-  .reading-row:last-child { padding-bottom: 0; }
-  .reading-art { padding-top: .125rem; }
-  .reading-art img {
+  .resource-row:first-child { padding-top: 0; }
+  .resource-row:last-child { padding-bottom: 0; }
+  .resource-art { padding-top: .125rem; }
+  .resource-art img {
     display: block;
     width: 56px;
     height: 80px;
@@ -62,8 +62,8 @@ const { title, author, note, link, cover } = Astro.props;
     border-radius: 2px;
   }
   @media (max-width: 400px) {
-    .reading-row { grid-template-columns: 44px minmax(0, 1fr); gap: 1rem; }
-    .reading-art img { width: 44px; height: 64px; }
+    .resource-row { grid-template-columns: 44px minmax(0, 1fr); gap: 1rem; }
+    .resource-art img { width: 44px; height: 64px; }
     .resource-icon { width: 44px; height: 60px; }
   }
 </style>

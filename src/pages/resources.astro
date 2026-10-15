@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
-import ReadingRow from "@/components/ui/ReadingRow.astro";
+import ResourceRow from "@/components/ui/ResourceRow.astro";
 import { java, python, ai, systemDesign } from "@/data/books";
 const sections = [
   { label: "System Design & Architecture", resources: systemDesign },
@@ -12,11 +12,11 @@ const sections = [
 ---
 
 <BaseLayout
-  title="Reading"
-  description="Technical books John Cedric Panti is currently reading to deepen backend and AI engineering knowledge."
+  title="Resources"
+  description="Books, courses, and resources John Cedric Panti is exploring to deepen backend and AI engineering knowledge."
 >
   <div class="space-y-6">
-    <PageHeading title="Reading" />
+    <PageHeading title="Resources" />
     <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
       These are the books and resources I'm exploring as I learn more about AI engineering, Java, Python, System Design, and Software Architecture.
     </p>
@@ -27,7 +27,7 @@ const sections = [
             {label}
           </h2>
           <ul>
-            {resources.map((resource) => <ReadingRow {...resource} />)}
+            {resources.map((resource) => <ResourceRow {...resource} />)}
           </ul>
         </section>
       ))}
