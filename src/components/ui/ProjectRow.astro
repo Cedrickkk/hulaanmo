@@ -20,11 +20,11 @@ const isExternal = Boolean(link) && link !== "#";
     target={isExternal ? "_blank" : undefined}
     rel={isExternal ? "noopener noreferrer" : undefined}
     aria-disabled={isExternal ? undefined : "true"}
-    class={`text-lg font-medium ${isExternal ? "ink-link" : "pointer-events-none"}`}
+    class={`text-base font-medium ${isExternal ? "ink-link" : "pointer-events-none"}`}
   >
     {name}
   </a>
-  ) : <p class="text-lg font-medium">{name}</p>}
+  ) : <p class="text-base font-medium">{name}</p>}
   <p class="text-sm">{description}</p>
   <div class="flex flex-wrap gap-1.5 pt-1">
     {tech.map((item) => <TechTag label={item} />)}
