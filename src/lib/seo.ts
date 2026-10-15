@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "John Cedric Panti",
   shortName: "Cedrickkk",
-  title: "Cedrickkk - Software Developer",
+  title: "John Cedric Panti | Software Developer",
   description:
     "Full-stack developer specializing in Java, JavaScript, and PHP. Building web applications with Spring Boot, React, and Laravel. Currently deepening expertise in backend development with Spring Data, Spring Security, and REST APIs.",
   url: "https://cedrickkk.vercel.app",
