@@ -4,7 +4,7 @@ export const profile = {
 };
 
 export const about = {
-  motto: "moving at my own pace",
+  motto: "moving at my own pace. always moving forward",
   introduction:
     "Learning more about software development, one small step at a time. Building things, getting curious, and figuring things out as I go.",
   goals:
