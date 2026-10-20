@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
 import ResourceRow from "@/components/ui/ResourceRow.astro";
-import { java, python, ai, systemDesign } from "@/data/books";
+import { java, python, ai, systemDesign } from "@/data/resource";
 const sections = [
   { label: "System Design & Architecture", resources: systemDesign },
   { label: "AI Engineering", resources: ai.map(({ instructor, ...course }) => ({ ...course, author: instructor })) },
