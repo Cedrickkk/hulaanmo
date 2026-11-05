@@ -1,0 +1,80 @@
+---
+const groups = [
+  {
+    label: "Programming Languages",
+    kind: "code",
+    items: ["Java", "TypeScript", "JavaScript", "Python", "PHP"],
+  },
+  {
+    label: "Frameworks & Libraries",
+    kind: "blocks",
+    items: [
+      "Spring Boot", "Laravel", "Express", "FastAPI", "Flask", 
+      "CodeIgniter", "React", "Next.js", "Inertia.js", "TanStack",
+      "Redux", "Zod", "Tailwind CSS", "Bootstrap",
+    ],
+  },
+  {
+    label: "Data & Infrastructure",
+    kind: "data",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Kafka", "Docker", "Git", "GitHub"],
+  },
+  {
+    label: "Other Practices",
+    kind: "spark",
+    items: ["AI engineering", "AI-assisted development", ],
+  },
+];
+
+---
+
+<div class="stack-list" aria-label="Technologies and practices">
+  {groups.map(({ label, kind, items }, index) => (
+    <section class="stack-group" aria-labelledby={`stack-group-${index}`}>
+      <div class="group-heading">
+        <svg class="group-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          {kind === "code" && <>
+            <path d="m12 10-6 6 6 6M20 10l6 6-6 6M18 7l-4 18" />
+          </>}
+          {kind === "blocks" && <>
+            <rect x="5" y="6" width="9" height="8" rx="1" />
+            <rect x="18" y="6" width="9" height="8" rx="1" />
+            <rect x="11.5" y="18" width="9" height="8" rx="1" />
+            <path d="M9.5 14v2h13v-2M16 16v2" />
+          </>}
+          {kind === "data" && <>
+            <ellipse cx="16" cy="8" rx="10" ry="3.5" />
+            <path d="M6 8v7c0 2 4.5 3.5 10 3.5S26 17 26 15V8M6 15v7c0 2 4.5 3.5 10 3.5S26 24 26 22v-7" />
+            <path d="M6 15c0 2 4.5 3.5 10 3.5S26 17 26 15" />
+          </>}
+          {kind === "spark" && <>
+            <path d="M16 4v7M16 21v7M4 16h7M21 16h7M7.5 7.5l5 5M19.5 19.5l5 5M24.5 7.5l-5 5M12.5 19.5l-5 5" />
+            <circle cx="16" cy="16" r="3.5" />
+          </>}
+        </svg>
+        <h3 id={`stack-group-${index}`} class="group-title">{label}</h3>
+      </div>
+      <p class="tool-list">{items.join(" · ")}</p>
+    </section>
+  ))}
+</div>
+
+<style>
+  .stack-list { display: grid; }
+  .stack-group {
+    display: grid;
+    grid-template-columns: minmax(10.5rem, .72fr) minmax(0, 2fr);
+    gap: 1rem;
+    padding-block: .85rem;
+    border-top: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  }
+  .group-heading { display: flex; align-items: center; gap: .55rem; }
+  .group-icon { width: 1.6rem; height: 1.6rem; flex: none; color: var(--color-accent); }
+  .group-title {
+    font-size: .8125rem; font-weight: 500; color: var(--color-fg);
+  }
+  .tool-list { margin: 0; font-size: .8rem; line-height: 1.8; }
+  @media (max-width: 640px) {
+    .stack-group { grid-template-columns: 1fr; gap: .35rem; }
+  }
+</style>

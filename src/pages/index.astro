@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
 import LearningMap from "@/components/ui/LearningMap.astro";
 import ContributionGraph from "@/components/ui/ContributionGraph.astro";
+import TechStack from "@/components/ui/TechStack.astro";
 import { about } from "@/lib/profile";
 ---
 
@@ -21,21 +22,13 @@ import { about } from "@/lib/profile";
         <LearningMap />
       </div>
 
-      <div class="space-y-3">
+      <div class="space-y-3 mt-8">
         <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
-         Interests
+          Technology stack
         </p>
-        <p class="max-w-[65ch] text-sm leading-relaxed text-[var(--color-muted)]">
-          {about.interests}
-        </p>
+        <TechStack />
       </div>
-
-      <div class="space-y-3">
-        <p class="font-mono text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
-          GitHub Activity
-        </p>
-        <ContributionGraph />
-      </div>
+     
     </div>
   </div>
 </BaseLayout>
