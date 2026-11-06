@@ -21,10 +21,10 @@ export const externalLinks: ExternalLink[] = [
     label: "@linkedin",
     url: "https://linkedin.com/in/cedric-panti",
   },
-  {
-    label: "@resume",
-    url: "/resume.pdf",
-  },
+  // {
+  //   label: "@resume",
+  //   url: "/resume.pdf",
+  // },
 ];
 
 export const navigation: Navigation[] = [
