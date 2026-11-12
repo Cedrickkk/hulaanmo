@@ -20,7 +20,7 @@ export const experience: Experience[] = [
     type: "",
     period: "Feb 2026 – May 2026",
     bullets: [
-      "Developed the backend of an internal loan management system, designing REST APIs that handled the full loan lifecycle and normalizing the database schema to support multi-stage workflows.",
+      "Designed and implemented REST APIs and normalized the database schema for an internal loan management system, supporting end-to-end loan lifecycles and multi-stage workflows. ",
     ],
   },
   {
@@ -28,7 +28,7 @@ export const experience: Experience[] = [
     type: "",
     period: "Jan 2026",
     bullets: [
-      "Developed frontend components for a lending system, leading form validation efforts and troubleshooting API integration bottlenecks alongside backend teams.",
+      "Implemented frontend components for a lending system, focusing on form validation and resolving API integration bottlenecks with backend teams",
     ],
   },
 ];
